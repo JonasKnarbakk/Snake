@@ -6,9 +6,7 @@ NC='\033[0m' # No Color
 
 UNAME=$(uname)
 
-if [ -d "bin" ]
-    then mkdir bin
-fi
+
 if [ "${UNAME}" == "Darwin" ]
     then echo "${GREEN}OS X detected, looking for SDL2 libs${NC}"
 	if [ -d "/usr/local/Cellar/sdl2" ]
@@ -53,6 +51,9 @@ if [ "${UNAME}" == "Darwin" ]
         fi
             else echo "${RED}Brew is not installed, install brew first or get the missing SDL2 libs manually${NC}"
     fi
+    if [ ! -d "$PWD/bin" ]
+        then echo "${RED}bin folder missing${NC}" && echo "${GREEN}Creating bin folder${NC}" && mkdir bin
+    fi
 fi
 	
 if [ "${UNAME}" == "Linux" ]
@@ -61,5 +62,8 @@ if [ "${UNAME}" == "Linux" ]
         then echo -e -e "${GREEN}SDL2 is already installed${NC}"
     else
         echo -e "${RED}SDL2 is not installed, installing...${NC}" && sudo pacman -S sdl2
+    fi
+    if [ ! -d "$PWD/bin" ]
+        then echo -e "${RED}bin folder missing${NC}" && echo -e "${GREEN}Creating bin folder${NC}" && mkdir bin
     fi
 fi
