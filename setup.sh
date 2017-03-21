@@ -6,7 +6,11 @@ NC='\033[0m' # No Color
 
 UNAME=$(uname)
 
-if [ "$(UNAME)" == "Darwin" ]; then echo "${GREEN}OS X detected, looking for SDL2 libs${NC}"
+if [ -d "bin" ]
+    then mkdir bin
+fi
+if [ "${UNAME}" == "Darwin" ]
+    then echo "${GREEN}OS X detected, looking for SDL2 libs${NC}"
 	if [ -d "/usr/local/Cellar/sdl2" ]
 		then echo "${GREEN}SDL2 is already installed${NC}"
 	else
@@ -51,6 +55,11 @@ if [ "$(UNAME)" == "Darwin" ]; then echo "${GREEN}OS X detected, looking for SDL
     fi
 fi
 	
-#if [ "$(UNAME)" == "Linux" ]; then echo -e -e "$\{GREEN\}Linux detected, looking for SDL2$\{NC\}";\\\
-#		if [ -f "gusr/include/SDL2/SDL.h" ]; then echo -e -e "$\{GREEN\}SDL2 is already installed$\{NC\}";\\\
-#		else echo -e -e "$\{RED\}SDL2 is not installed, installing...$\{NC\}" && sudo pacman -S sdl2; fi; fi\
+if [ "${UNAME}" == "Linux" ]
+    then echo -e "${GREEN}Linux detected, looking for SDL2${NC}"
+    if [ -f "/usr/include/SDL2/SDL.h" ]
+        then echo -e -e "${GREEN}SDL2 is already installed${NC}"
+    else
+        echo -e "${RED}SDL2 is not installed, installing...${NC}" && sudo pacman -S sdl2
+    fi
+fi
