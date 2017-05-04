@@ -1,0 +1,6 @@
+/home/ghost/SourceCode/C++/Snake/build/CMakeFiles/rebuild_cache.dir
+/home/ghost/SourceCode/C++/Snake/build/CMakeFiles/edit_cache.dir
+/home/ghost/SourceCode/C++/Snake/build/CMakeFiles/run.dir
+/home/ghost/SourceCode/C++/Snake/build/src/CMakeFiles/rebuild_cache.dir
+/home/ghost/SourceCode/C++/Snake/build/src/CMakeFiles/edit_cache.dir
+/home/ghost/SourceCode/C++/Snake/build/src/CMakeFiles/Snake.dir
