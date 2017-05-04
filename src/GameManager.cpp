@@ -12,6 +12,7 @@
 #include "GameManager.h"
 #include "InputManager.h"
 #include "Timer.h"
+#include "Handlers/MusicHandler.hpp"
 
 /* Initializes SDL, creates the game window and fires off the timer. */
 GameManager::GameManager()
@@ -100,6 +101,12 @@ void GameManager::play()
 	};
 
 	bodyPos parts[20*20];
+
+	// Load some music
+	MusicHandler musicHandler;
+
+	musicHandler.loadMusicTrack("Assets/music/soundtrack.mp3");
+	musicHandler.start();
 
 	// Gameloop
 	while (notGameOver)

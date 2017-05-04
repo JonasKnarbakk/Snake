@@ -12,4 +12,4 @@ ADD_SUBDIRECTORY(src)
 
 # Add custom make commands for running the binary
 ADD_CUSTOM_TARGET(run)
-ADD_CUSTOM_COMMAND(TARGET run COMMAND ./bin/Snake)
+ADD_CUSTOM_COMMAND(TARGET run COMMAND cd .. && ./bin/Snake)

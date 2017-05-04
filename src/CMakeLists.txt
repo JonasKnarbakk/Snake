@@ -1,9 +1,17 @@
-# Directories to include
-#INCLUDE_DIRECTORIES(${${PROJECT_NAME}_SOURCE_DIR}/src)
-#INCLUDE_DIRECTORIES(${${PROJECT_NAME}_SOURCE_DIR}/src/SDL)
+# List of all the source files in the project
+FILE(GLOB SRC
+    "Main.cpp"
+    "GameManager.cpp"
+    "InputManager.cpp"
+    "Timer.cpp"
+    "SDL/SDLBmp.cpp"
+    "SDL/SDLError.cpp"
+    "SDL/SDLManager.cpp"
+    "Handlers/MusicHandler.cpp"
+    )
 
 # Create the executable form listed cpp files
-ADD_EXECUTABLE(${PROJECT_NAME} Main.cpp GameManager.cpp InputManager.cpp Timer.cpp SDL/SDLBmp.cpp SDL/SDLError.cpp SDL/SDLManager.cpp)
+ADD_EXECUTABLE(${PROJECT_NAME} ${SRC})
 
 # Make it so the binary is put in the bin folder of the root directory
 SET_TARGET_PROPERTIES( ${PROJECT_NAME}
