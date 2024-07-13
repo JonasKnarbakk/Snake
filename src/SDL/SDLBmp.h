@@ -11,28 +11,35 @@
 #define SDL_BMP_H
 
 #include <string>
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
-class SDLBmp
-{
-public:
-	/* Loads the given file on construction */
-	SDLBmp(const std::string& file);
-	
-	/* Free's the memory consumed by the image data */
-	~SDLBmp();
+class SDLBmp {
+  public:
+    /* Loads the given file on construction */
+    SDLBmp(const std::string &file);
 
-	/* Adds the image to the master window */
-	void draw();
+    /* Free's the memory consumed by the image data */
+    ~SDLBmp();
 
-	/* "home brewed" float coordinates, SDL2 uses ints
-		which is a bit too unpresice. */
-	float x;
-	float y;
-private:
-	SDL_Texture* m_texture; // Pixel data (on GPU)
-	SDL_Renderer* m_renderer; // Pointer to window's renderer.
-	SDL_Rect m_rect; // Used for w/h, placement and cropping.
+    /* Adds the image to the master window */
+    void draw();
+
+    /* Adds a part of the image to the master image, useful for spiritesheets */
+    void draw(SDL_Rect *clip);
+
+    /* Gets the dimensions of the texture in pixels */
+    int getWidth();
+    int getHeight();
+
+    /* "home brewed" float coordinates, SDL2 uses ints
+            which is a bit too unpresice. */
+    float x;
+    float y;
+
+  private:
+    SDL_Texture *m_texture;   // Pixel data (on GPU)
+    SDL_Renderer *m_renderer; // Pointer to window's renderer.
+    SDL_Rect m_rect;          // Used for w/h, placement and cropping.
 };
 
 #endif
