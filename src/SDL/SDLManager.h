@@ -14,7 +14,7 @@
 
 #include <memory>
 #include <vector>
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include "SDLError.h"
 #include "SDLWindow.h"
 
@@ -47,7 +47,7 @@ public:
 
 	/* Returns the renderer to the specified window */
 	SDL_Renderer* getRenderer(const unsigned int& windowIndex = 0) const;
-	
+
 	/* Returns the index of the main/master window */
 	const unsigned int* getMainWindow() const;
 
@@ -64,7 +64,7 @@ public:
 	void render();
 private:
 	SDLManager(); // hidden constructor (singleton)
-	SDLManager(const SDLManager&); // hidden copy constructor 
+	SDLManager(const SDLManager&); // hidden copy constructor
 	SDLManager& operator=(const SDLManager&); // hidden assignment op.
 
 	std::vector<std::unique_ptr<SDLWindow>> m_windows; // list of windows

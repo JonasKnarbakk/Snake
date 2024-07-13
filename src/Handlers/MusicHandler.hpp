@@ -1,7 +1,7 @@
 #ifndef MUSICHANDLER_HPP
 #define MUSICHANDLER_HPP
 
-#include <SDL2/SDL_mixer.h>
+#include <SDL_mixer.h>
 #include <string>
 
 class MusicHandler{
@@ -19,10 +19,10 @@ class MusicHandler{
 
         // Play the music if paused
         bool play();
-        
+
         // Pause the music if playing
         bool pause();
-        
+
         // Stop the music from playing
         bool stop();
 };

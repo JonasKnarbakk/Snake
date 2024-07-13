@@ -8,12 +8,12 @@
  *				 Includes a well working SDL2 input manager.
  *				 This project may be used as a start-off
  *				 point for SDL2 projects.
- *				
+ *
  *				 NB: requires SDL 2.0.0-6799 (32 bit)
  */
 
-#include <SDL2/SDL_ttf.h>
 #include <iostream>
+#include "SDL_ttf.h"
 #include "GameManager.h"
 
 int main()

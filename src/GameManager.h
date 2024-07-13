@@ -9,7 +9,7 @@
 #ifndef GAMEMANAGER_H
 #define GAMEMANAGER_H
 
-#include <SDL2/SDL_mixer.h>
+#include <SDL_mixer.h>
 #include "SDL/SDLManager.h"
 
 class GameManager
@@ -31,7 +31,7 @@ private:
 
 
     void renderText(std::string text, int x, int y);
-	
+
     TTF_Font* Sans;
     Mix_Chunk *eat;
     Mix_Chunk *death;

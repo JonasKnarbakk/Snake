@@ -6,8 +6,8 @@
  * @description: A singleton class to control all gameplay.
  */
 
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_mixer.h>
+#include <SDL_ttf.h>
+#include <SDL_mixer.h>
 #include "SDL/SDLBmp.h"
 #include "GameManager.h"
 #include "InputManager.h"
@@ -82,7 +82,7 @@ void GameManager::play()
     };
 
     playerCharacter player;
-    
+
     // Set the player starting position
     player.x = 0;
     player.y = 0;
@@ -126,7 +126,7 @@ void GameManager::play()
 		{
 			dir = DIR_BACKWARD;
 		}
-		
+
 		// Right key
 		if (InputManager::Instance().KeyDown(SDL_SCANCODE_RIGHT) ||
 			InputManager::Instance().KeyStillDown(SDL_SCANCODE_RIGHT))
@@ -187,7 +187,7 @@ void GameManager::play()
                     player.x -= displacement;
                     break;
             }
-           
+
             // Check for game over states
             if(player.x >= 640 || player.x < 0 || player.y >= 640 || player.y < 0){
                 notGameOver = false;
@@ -268,7 +268,7 @@ void GameManager::play()
                 grass.y += 32;
                 grass.x = 0;
 			}
-			
+
 			// Draw each body part relative to the accumulated score
 			for(int i = 0; i < (int)score; i++){
 			    body.x = parts[i].x;
@@ -348,13 +348,13 @@ void GameManager::renderText(std::string text, int x, int y){
         SDL_FreeSurface(surfaceOutline);
 
         SDL_Rect Message_rect; //create a rect
-        Message_rect.x = x;  //controls the rect's x coordinate 
+        Message_rect.x = x;  //controls the rect's x coordinate
         Message_rect.y = y; // controls the rect's y coordinte
         Message_rect.w = 150; // controls the width of the rect
         Message_rect.h = 50; // controls the height of the rect
 
         SDL_Rect Outline_rect; //create a rect
-        Outline_rect.x = x+3;  //controls the rect's x coordinate 
+        Outline_rect.x = x+3;  //controls the rect's x coordinate
         Outline_rect.y = y+3; // controls the rect's y coordinte
         Outline_rect.w = 150; // controls the width of the rect
         Outline_rect.h = 50; // controls the height of the rect

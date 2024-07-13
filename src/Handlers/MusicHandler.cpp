@@ -2,7 +2,7 @@
 // Created by Jonas Knarbakk (00:08:40-25/03/2017)
 
 #include "MusicHandler.hpp"
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 MusicHandler::MusicHandler(){
     if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 ){
@@ -29,7 +29,7 @@ bool MusicHandler::loadMusicTrack(std::string path){
 bool MusicHandler::start(){
     if(Mix_PlayingMusic() == false){
         if(Mix_PlayMusic(m_soundTrack, -1) == -1){
-            return true; 
+            return true;
         } else {
             return false;
         }
